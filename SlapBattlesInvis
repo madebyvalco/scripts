@@ -45,7 +45,7 @@ function UpdateActualHandClick()
     local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
     for _, v in pairs(AllHands) do
     if string.find(tostring(v), HandName) then
-        return game:GetService("Workspace").Lobby:FindFirstChild(v.Name).ClickDetector
+        return tostring(v)
     end
 end
     
@@ -75,7 +75,7 @@ while true do
         wait()
         game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
         wait(0.1)
-        fireclickdetector(UpdateActualHandClick())
+        fireclickdetector(game:GetService("Workspace").Lobby:FindFirstChild(UpdateActualHandClick()).ClickDetector)
         getgenv().Debounce = true
     end
     if (getgenv().PlayerIsDead == true) then
