@@ -5,7 +5,7 @@ ____   ____      .__
   \     /  / __ \|  |_\  \__(  <_> )
    \___/  (____  /____/\___  >____/ 
                \/          \/       
-]]--
+]] --
 
 getgenv().Invisible = true
 getgenv().ActivateTime = 5 -- This is in seconds and this is the amount of time you have after you die until it applies the invisibility
@@ -20,16 +20,16 @@ pcall(
     end
 )
 
-game:GetService("StarterGui"):SetCore("SendNotification", {
-  Title = "Loaded!",
-  Text = "Slap Battles invisibility script"
-})
-
-
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Loaded!",
+        Text = "Slap Battles invisibility script"
+    }
+)
 
 getgenv().Debounce = false
 getgenv().PlayerIsDead = false
-
 
 local AllHands = {}
 
@@ -40,17 +40,6 @@ for _, v in pairs(game:GetService("Workspace").Lobby:GetChildren()) do
         end
     end
 end
-
-function UpdateActualHandClick()
-    local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
-    for _, v in pairs(AllHands) do
-    if string.find(tostring(v), HandName) then
-        return tostring(v)
-    end
-end
-    
-    end
-
 
 plr.Character:WaitForChild("Humanoid").Died:Connect(
     function()
@@ -71,11 +60,20 @@ while true do
     end
     if (getgenv().Debounce == false) then
         wait(4)
+        local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
+        local ActualHandName = nil
+        for _, v in pairs(AllHands) do
+            if string.find(tostring(v), HandName) then
+                ActualHandName = tostring(v)
+            end
+        end
+
         fireclickdetector(game:GetService("Workspace").Lobby.Ghosthand.ClickDetector)
         wait()
         game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
         wait(0.1)
-        fireclickdetector(game:GetService("Workspace").Lobby:FindFirstChild(UpdateActualHandClick()).ClickDetector)
+        fireclickdetector(game:GetService("Workspace").Lobby:FindFirstChild(ActualHandName).ClickDetector)
+        print(ActualHandName)
         getgenv().Debounce = true
     end
     if (getgenv().PlayerIsDead == true) then
