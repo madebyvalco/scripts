@@ -43,11 +43,17 @@ for _, v in pairs(game:GetService("Workspace").Lobby:GetChildren()) do
     end
 end
 
-for _, v in pairs(AllHands) do
+function UpdateActualHand()
+    
+    for _, v in pairs(AllHands) do
     if string.find(tostring(v), HandName) then
         ActualHand = game:GetService("Workspace").Lobby:FindFirstChild(v.Name)
     end
 end
+    
+    end
+
+UpdateActualHand()
 
 plr.Character:WaitForChild("Humanoid").Died:Connect(
     function()
@@ -68,6 +74,7 @@ while true do
     end
     if (getgenv().Debounce == false) then
         wait(4)
+        UpdateActualHand()
         fireclickdetector(game:GetService("Workspace").Lobby.Ghosthand.ClickDetector)
         wait()
         game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
