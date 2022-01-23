@@ -20,6 +20,13 @@ pcall(
     end
 )
 
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "Slap Battles Invis",
+  Text = "Loaded"
+})
+
+
+
 getgenv().Debounce = false
 getgenv().PlayerIsDead = false
 
