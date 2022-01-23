@@ -15,7 +15,7 @@ local plr = game:GetService("Players").LocalPlayer
 pcall(
     function()
         if plr:WaitForChild("leaderstats"):WaitForChild("Slaps").Value < 666 then
-            return plr:Kick("You need Above 666 Slaps \n To Use Script.")
+            return plr:Kick("You Need Atleast 666 Slaps \n To Use Script.")
         end
     end
 )
