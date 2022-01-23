@@ -60,7 +60,7 @@ while true do
     end
     if (getgenv().Debounce == false) then
         wait(4)
-        local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
+        local HandName = game:GetService("Players").LocalPlayer:WaitForChild("leaderstats").Glove.Value
         local ActualHandName = nil
         for _, v in pairs(AllHands) do
             if string.find(tostring(v), HandName) then
