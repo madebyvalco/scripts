@@ -30,8 +30,6 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 getgenv().Debounce = false
 getgenv().PlayerIsDead = false
 
-local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
-local ActualHand = nil
 
 local AllHands = {}
 
@@ -43,17 +41,16 @@ for _, v in pairs(game:GetService("Workspace").Lobby:GetChildren()) do
     end
 end
 
-function UpdateActualHand()
-    
+function UpdateActualHandClick()
+    local HandName = game:GetService("Players").LocalPlayer.leaderstats.Glove.Value
     for _, v in pairs(AllHands) do
     if string.find(tostring(v), HandName) then
-        ActualHand = game:GetService("Workspace").Lobby:FindFirstChild(v.Name)
+        return game:GetService("Workspace").Lobby:FindFirstChild(v.Name).ClickDetector
     end
 end
     
     end
 
-UpdateActualHand()
 
 plr.Character:WaitForChild("Humanoid").Died:Connect(
     function()
@@ -74,12 +71,11 @@ while true do
     end
     if (getgenv().Debounce == false) then
         wait(4)
-        UpdateActualHand()
         fireclickdetector(game:GetService("Workspace").Lobby.Ghosthand.ClickDetector)
         wait()
         game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
         wait(0.1)
-        fireclickdetector(ActualHand.ClickDetector)
+        fireclickdetector(UpdateActualHandClick())
         getgenv().Debounce = true
     end
     if (getgenv().PlayerIsDead == true) then
