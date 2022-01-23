@@ -21,8 +21,8 @@ pcall(
 )
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-  Title = "Slap Battles Invis",
-  Text = "Loaded"
+  Title = "Loaded!",
+  Text = "Slap Battles invisibility script"
 })
 
 
