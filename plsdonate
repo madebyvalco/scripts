@@ -39,7 +39,6 @@ local logFolder = makefolder("RichTextLogger/Log_" .. logString)
 for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MapUIContainer.MapUI.BoothUI:GetDescendants()) do
     if v:IsA("TextLabel") and v.Parent and v.Parent.Name == "Sign" and v.Text ~= "your text here" then
         for a, e in pairs(richTextCharacters) do
-            print("RICHCCCC" .. a)
             if string.find(tostring(v.Text), richTextCharacters[a]) then
                 writefile("RichTextLogger/Log_" .. logString .. "/richText_" .. _ .. ".txt", tostring(v.Text))
             end
