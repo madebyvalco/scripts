@@ -1,0 +1,55 @@
+--[[
+Made By Valco
+v1.0.0
+
+Game: https://www.roblox.com/games/8737602449/PLS-DONATE-NEW
+]]--
+
+function randomString(length)
+    local res = ""
+    for i = 1, length do
+        res = res .. string.char(math.random(97, 122))
+    end
+    return res
+end
+
+if isfolder == false then
+    makefolder("RichTextLogger")
+end
+
+local richTextCharacters = {
+    "<stroke>",
+    "<b>",
+    "<i>",
+    "<u>",
+    "<s>",
+    "<!--",
+    "<br />",
+    "<smallcaps>",
+    "<sc>",
+    "<uppercase>",
+    "<uc>",
+    "<font color=",
+    "<font size=",
+    "<font face="
+}
+
+local logString = randomString(3)
+local logFolder = makefolder("RichTextLogger/Log_" .. logString)
+for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MapUIContainer.MapUI.BoothUI:GetDescendants()) do
+    if v:IsA("TextLabel") and v.Parent and v.Parent.Name == "Sign" and v.Text ~= "your text here" then
+        for a, e in pairs(richTextCharacters) do
+            print("RICHCCCC" .. a)
+            if string.find(tostring(v.Text), richTextCharacters[a]) then
+                writefile("RichTextLogger/Log_" .. logString .. "/richText_" .. _ .. ".txt", tostring(v.Text))
+            end
+        end
+    end
+end
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Success",
+        Text = "located at 'RichTextLogger/Log_" .. logString .. "'"
+    }
+)
