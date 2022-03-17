@@ -36,7 +36,10 @@ local richTextCharacters = {
 
 local logString = randomString(3)
 local logFolder = makefolder("RichTextLogger/Log_" .. logString)
-for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MapUI.BoothUI:GetDescendants()) do
+
+local ChildPath = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("MapUIContainer").MapUI or game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("MapUI") 
+
+for _, v in pairs(ChildPath.BoothUI:GetDescendants()) do
     if v:IsA("TextLabel") and v.Parent and v.Parent.Name == "Sign" and v.Text ~= "your text here" then
         for a, e in pairs(richTextCharacters) do
             if string.find(tostring(v.Text), richTextCharacters[a]) then
