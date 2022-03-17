@@ -1,6 +1,6 @@
 --[[
 Made By Valco
-v1.0.0
+v1.0.1
 
 Game: https://www.roblox.com/games/8737602449/PLS-DONATE-NEW
 ]]--
@@ -36,7 +36,7 @@ local richTextCharacters = {
 
 local logString = randomString(3)
 local logFolder = makefolder("RichTextLogger/Log_" .. logString)
-for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MapUIContainer.MapUI.BoothUI:GetDescendants()) do
+for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MapUI.BoothUI:GetDescendants()) do
     if v:IsA("TextLabel") and v.Parent and v.Parent.Name == "Sign" and v.Text ~= "your text here" then
         for a, e in pairs(richTextCharacters) do
             if string.find(tostring(v.Text), richTextCharacters[a]) then
