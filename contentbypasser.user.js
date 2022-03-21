@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         mboost.me & rekonise.com Bypass
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Bypasser for mboost.me & rekonise.com
 // @author       Valco#7818
 // @match        https://rekonise.com/*
@@ -18,7 +18,7 @@ window.onload = function() {
             const button = document.getElementsByClassName("mat-focus-indicator unlock-button mat-flat-button mat-button-base mat-accent mat-button-disabled")[0]
             document.getElementsByClassName("mat-focus-indicator unlock-button mat-flat-button mat-button-base mat-accent mat-button-disabled")[0].removeAttribute("disabled")
             button.click()
-        }, 500);
+        }, 1000);
 
     } else if (document.location.origin == "https://mboost.me") {
 
@@ -27,6 +27,6 @@ window.onload = function() {
             const formattedJson = JSON.parse(jsonData)
 
             window.location.href = formattedJson.props.initialProps.pageProps.data.targeturl
-        }, 500);
+        }, 1000);
     }
 }
