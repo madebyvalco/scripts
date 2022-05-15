@@ -1,1 +1,1 @@
-console.log("from github raw")
+process.end()
