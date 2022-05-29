@@ -1,0 +1,13 @@
+-- Game Link: https://www.roblox.com/games/7952502098/Impossible-Glass-Bridge-Obby-Squid-Game
+while task.wait() do
+    for _,v in pairs(game:GetService("Workspace")["Glass Bridge"].GlassPane:GetDescendants()) do
+    if v:IsA("Part") then
+        if v:FindFirstChild("TouchInterest") then
+            v.BrickColor = BrickColor.new("Really red")
+            else
+                v.BrickColor = BrickColor.new("Lime green")
+            end
+        end
+    end
+
+end
