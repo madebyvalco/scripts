@@ -214,4 +214,23 @@ CreditsSection:NewButton("Join Discord", "Joins the discord server.", function()
 	end
 end)
 
+pcall(function()
+    
+local Plrs = game:GetService("Players")
+local Run = game:GetService("RunService")
+
+local MyPlr = Plrs.LocalPlayer
+local MyChar = MyPlr.Character
+while true do
+MyChar = MyPlr.Character -- Player's character likes to go nil sometimes?
+if MyChar then
+local MyHum = MyChar:FindFirstChild("Humanoid")
+local MyTor = MyChar:FindFirstChild("HumanoidRootPart")
+if MyHum and MyTor then
+MyHum.WalkToPoint = MyTor.Position + Vector3.new(0, 0, 1)
+end
+end
+wait(30)
+end    
+end)
 
