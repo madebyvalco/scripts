@@ -1,4 +1,4 @@
-local lib = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local lib = {RainbowColorValue F= 0, HueSelectionPosition = 0}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -87,7 +87,7 @@ end
 
 function lib:Window(text, preset, closebind)
     CloseBind = closebind or Enum.KeyCode.RightControl
-    PresetColor = preset or Color3.fromRGB(44, 120, 224)
+    PresetColor = preset or Color3.fromRGB(239, 8, 8)
     fs = false
     local Main = Instance.new("Frame")
     local TabHold = Instance.new("Frame")
