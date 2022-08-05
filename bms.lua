@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 local plr = game:GetService("Players").LocalPlayer
 
-local Money = 10000000000
+local Money = getgenv().Money
 
 function BuyablesLeft()
     local Buyables = {}
