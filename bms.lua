@@ -18,7 +18,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 local plr = game:GetService("Players").LocalPlayer
 
-local Money = 10000000000
 getgenv().AutoFarm = true
 
 function BuyablesLeft()
@@ -35,13 +34,13 @@ end
 while wait() do
     if getgenv().AutoFarm == true then
           local PlayersPlot = game:GetService("ReplicatedStorage").Events.FetchPlayersPlot:InvokeServer()
-          game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -Money)
+               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value))
           repeat
               wait()
               if BuyablesLeft().Amount == 0 then 
                game:GetService("ReplicatedStorage").Events.CommitRebirth:InvokeServer()
                wait()
-               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -Money)
+               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value))
               end
               for _,v in pairs(BuyablesLeft().Buyables) do
                   if getgenv().AutoFarm == true then
