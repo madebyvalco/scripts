@@ -34,13 +34,13 @@ end
 while wait() do
     if getgenv().AutoFarm == true then
           local PlayersPlot = game:GetService("ReplicatedStorage").Events.FetchPlayersPlot:InvokeServer()
-               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value * 1000))
+               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value * 5))
           repeat
               wait()
               if BuyablesLeft().Amount == 0 then 
                game:GetService("ReplicatedStorage").Events.CommitRebirth:InvokeServer()
                wait()
-               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value * 1000))
+               game:GetService("ReplicatedStorage").Events.Recent.AxeEvent:FireServer({}, -(10000000000 * plr.PlayerData.Rebirths.Value * 5))
               end
               for _,v in pairs(BuyablesLeft().Buyables) do
                   if getgenv().AutoFarm == true then
