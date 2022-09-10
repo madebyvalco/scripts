@@ -3,7 +3,7 @@ from this code you have to give credits to Grims Community™ | Valco
 ]]--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("SLICE PVP [ALPHA]", "GrapeTheme")
+local Window = Library.CreateLib("SLICE PVP [ALPHA] v1.0.1", "GrapeTheme")
 local MainTab = Window:NewTab("Main")
 local MainSection = MainTab:NewSection("Main Functions")
 
