@@ -3,7 +3,7 @@ from this code you have to give credits to Grims Community™ | Valco
 ]]--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("SLICE PVP [ALPHA] v1.0.1", "GrapeTheme")
+local Window = Library.CreateLib("SLICE PVP [ALPHA] v1.0.3", "GrapeTheme")
 local MainTab = Window:NewTab("Main")
 local MainSection = MainTab:NewSection("Main Functions")
 
@@ -64,7 +64,7 @@ MainSection:NewToggle("Spam Balls", "Spams balls on everybody except you", funct
         for _,v in pairs(game:GetService("Players"):GetChildren()) do
         pcall(function()
             if plr ~= v then
-            local A_1 = "summon44"
+            local A_1 = "summon69"
             local A_2 = v.Character.HumanoidRootPart.Position
             local Event = game:GetService("ReplicatedStorage").Events.RemoteMessenger.SendData
             Event:FireServer(A_1, A_2)   
@@ -86,7 +86,7 @@ MainSection:NewToggle("Spam Cylinders", "Spams Cylinders on everybody except you
         for _,v in pairs(game:GetService("Players"):GetChildren()) do
         pcall(function()
             if plr ~= v then
-            local A_1 = "Summon32"
+            local A_1 = "Summon420"
             local A_2 = v.Character.HumanoidRootPart.Position
             local Event = game:GetService("ReplicatedStorage").Events.RemoteMessenger.SendData
             Event:FireServer(A_1, A_2)   
