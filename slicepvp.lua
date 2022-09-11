@@ -3,7 +3,7 @@ from this code you have to give credits to Grims Community™ | Valco
 ]]--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("SLICE PVP [ALPHA] v1.0.3", "GrapeTheme")
+local Window = Library.CreateLib("SLICE PVP [ALPHA] v1.1.3", "GrapeTheme")
 local MainTab = Window:NewTab("Main")
 local MainSection = MainTab:NewSection("Main Functions")
 
@@ -52,6 +52,26 @@ end)
 
 MainSection:NewButton("Infinite Health", "Gives you infinite health", function()
   game:GetService("Workspace").CurrentMap.Slice.Spawn["Safe Zone"].Size = Vector3.new(2555,2555,2555)
+end)
+
+
+getgenv().AutoCollectMoney = false
+MainSection:NewToggle("Auto Collect Money", "Auto collects money", function(state)
+    if state then
+        getgenv().AutoCollectMoney = true
+        repeat
+           task.wait()
+        for _,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        if v.Name == "money" then
+            pcall(function()
+                firetouchinterest(plr.Character.HumanoidRootPart, v, 0)
+                end)
+            end
+        end
+        until getgenv().AutoCollectMoney == false    
+    else
+        getgenv().AutoCollectMoney = false
+    end
 end)
 
 
@@ -226,6 +246,14 @@ CreditsSection:NewButton("Join Discord", "Joins the discord server.", function()
 		})
 	end
 end)
+
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+        if self == plr and getnamecallmethod():lower() == "kick"then
+            return nil
+        end
+        return Anti(self, ...)
+    end)
 
 game:GetService("Players").PlayerAdded:Connect(function(v)
     PlayersDropDown:Refresh(GetPlayers())
